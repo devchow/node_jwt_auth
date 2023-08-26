@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
 });
 
 // get all posts
-app.get('/posts', (req, res) => {
+app.get('/posts', authenticateToken, (req, res) => {
     res.json(posts.filter(post => post.username === req.user.name));
 });
 
